@@ -323,8 +323,9 @@ export default class EdgeTTSPlugin extends Plugin {
 			const fileName = this.settings.replaceSpacesInFilenames
 				? `${noteName}_-_${sanitizedDate}.mp3`
 				: `${noteName} - ${sanitizedDate}.mp3`;
-			const relativeFilePath = path.join(relativeFolderPath, fileName);
+			const relativeFilePath = relativeFolderPath + "/" + fileName;
 			const absoluteFilePath = path.join(absoluteFolderPath, fileName);
+
 
 			// Explicitly create an empty file before writing
 			await adapter.write(relativeFilePath, '');
